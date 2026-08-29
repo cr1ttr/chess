@@ -4,7 +4,7 @@ This is a web recreation of the classical board game, "Chess".
 The intended purpose of this project is to challenge myself by focusing on strict software development principles found in real world software development, additionally I am a big proponent of "showing rather than telling".  
 
 
-Ultimately I would like to have something thyouple can actually interact with anywhere in the world, considering virtually every device supports browsing the web. it doesn't matter where you are since you will likely be able to view this project interactively with no-hassle. In the modern age of the internet everything is demanding our attention, and I don't want to take any more of it than I need to.
+Ultimately I would like to have something you can actually interact with anywhere in the world, considering virtually every device supports browsing the web. it doesn't matter where you are since you will likely be able to view this project interactively with no-hassle. In the modern age of the internet everything is demanding our attention, and I don't want to take any more of it than I need to.
 
 &lt; IMAGE HERE &gt;
 ## Professional Development Goals
