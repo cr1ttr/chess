@@ -18,21 +18,21 @@ The intended purpose of this project is to challenge myself by focusing on stric
 - [ ] Creating A Bug-Free Version Of Chess
 - [ ] Setting Up Unit Tests To Prevent Regressions
 - [ ] Generating Heuristics For A Chess Engine 
-- [ ] Creating A Working AI That Can Beat Me
 - [ ] Implementing AB-Pruning For The Minimax Function 
 - [ ] FIDE-Compliance Excluding Over-The-Board Rules
 
-- Features
+- [ ] Features
   - [ ] FEN/PGN Import/Export
   - [ ] Undo/Redo
   - [ ] Play As White Or Black
   - [ ] Allow For Underpromotion
   - [ ] Real-Time Engine Evaluation
+  - [ ] A Working AI
 
 ### Stretch Goals
 
 - [ ] Setting Up A VPS To Enable Multiplayer Networking
-- Setting Up Multiplayer Networking
+- [ ] Setting Up Multiplayer Networking
   - [ ] Lobbies
   - [ ] Disconnection/Reconnection Handling
   - [ ] Using Websockets 
@@ -51,9 +51,9 @@ The intended purpose of this project is to challenge myself by focusing on stric
 
 ### Recommended Developer Dependencies:
 
-- [`^10.0.5 concurrently`](https://www.npmjs.com/package/concurrently)
-- [`^1.2.2 live-server`](https://www.npmjs.com/package/live-se\rver)
-- [`^7.0.2 typescript`](https://www.npmjs.com/package/typescript)
+- [`^10.0.5 <concurrently>`](https://www.npmjs.com/package/concurrently)
+- [`^1.2.2 <live-server>`](https://www.npmjs.com/package/live-se\rver)
+- [`^7.0.2 <typescript>`](https://www.npmjs.com/package/typescript)
 
 ### Setup Steps
 
