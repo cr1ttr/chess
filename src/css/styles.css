@@ -7,4 +7,16 @@
 
 body {
     background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.board {
+    border: 1px solid red;
+    width: min(90vh, 90vw);
+    height: auto;
+    aspect-ratio: 1;
+    display: grid;
 }
