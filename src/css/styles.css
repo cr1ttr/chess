@@ -2,6 +2,8 @@
 
 :root {
     --bg-color: #1e1e1e;
+    --sq-light: #e3c16f;
+    --sq-dark: #b88b4a;
 }
 
 
@@ -14,9 +16,13 @@ body {
 }
 
 .board {
-    border: 1px solid red;
     width: min(90vh, 90vw);
     height: auto;
     aspect-ratio: 1;
     display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
 }
+
+.sq-light { background-color: var(--sq-light); }
+.sq-dark { background-color: var(--sq-dark); }
