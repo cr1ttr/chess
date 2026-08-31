@@ -6,7 +6,10 @@ The intended purpose of this project is to challenge myself by focusing on stric
 
 Ultimately I would like to have something you can actually interact with anywhere in the world, considering virtually every device supports browsing the web. it doesn't matter where you are since you will likely be able to view this project interactively with no-hassle. In the modern age of the internet everything is demanding our attention, and I don't want to take any more of it than I need to.
 
+This project includes material by [Cburnett](https://commons.wikimedia.org/wiki/User:Cburnett), licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+
 &lt; IMAGE HERE &gt;
+
 ## Professional Development Goals
 
 - [ ] Using Planning And Organizational Tools To Smooth Out The Development Process
