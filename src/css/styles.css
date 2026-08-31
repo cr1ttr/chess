@@ -1,0 +1,50 @@
+@import url("reset.css");
+
+:root {
+    --bg-color: #1e1e1e;
+    --sq-light: #e3c16f;
+    --sq-dark: #b88b4a;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.board {
+    width: min(90vh, 90vw);
+    height: auto;
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.sq-light { background-color: var(--sq-light); }
+.sq-dark { background-color: var(--sq-dark); }
+
+.wk { background-image: url("../images/pieces/wk.svg"); }
+.wn { background-image: url("../images/pieces/wn.svg"); }
+.wb { background-image: url("../images/pieces/wb.svg"); }
+.wq { background-image: url("../images/pieces/wq.svg"); }
+.wp { background-image: url("../images/pieces/wp.svg"); }
+.wr { background-image: url("../images/pieces/wr.svg"); }
+
+.bk { background-image: url("../images/pieces/bk.svg"); }
+.bn { background-image: url("../images/pieces/bn.svg"); }
+.bb { background-image: url("../images/pieces/bb.svg"); }
+.bq { background-image: url("../images/pieces/bq.svg"); }
+.bp { background-image: url("../images/pieces/bp.svg"); }
+.br { background-image: url("../images/pieces/br.svg"); }
+
+.wk, .wq, .wr, .wn, .wb, .wp,
+.bk, .bq, .br, .bn, .bb, .bp {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
