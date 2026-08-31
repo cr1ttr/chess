@@ -15,7 +15,7 @@ This project includes material by [Cburnett](https://commons.wikimedia.org/wiki/
 - [ ] Using Planning And Organizational Tools To Smooth Out The Development Process
 - [ ] Committing To Time Tracking And Daily Project Logs To Understand The Progression Of The Project
 - [ ] Utilizing Good VCS Conventions
-- [ ] Utilizing Test Driven Development (TDD) 
+- [ ] Utilizing Test Driven Development (TDD)
 - [ ] Creating Well Documented Software
 - [ ] Using Standard Software Development Practice
 - [ ] Documenting My Research So Others Can Learn From It
@@ -27,7 +27,6 @@ This project includes material by [Cburnett](https://commons.wikimedia.org/wiki/
 - [ ] Generating Heuristics For A Chess Engine 
 - [ ] Implementing AB-Pruning For The Minimax Function 
 - [ ] FIDE-Compliance Excluding Over-The-Board Rules
-
 - [ ] Features
   - [ ] FEN/PGN Import/Export
   - [ ] Undo/Redo
