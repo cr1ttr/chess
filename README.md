@@ -1,5 +1,8 @@
 # Chess
 
+> [!WARNING]
+> This project is still very early and currently undergoing heavy experimentation.
+
 This is a web recreation of the classical board game, "Chess". 
 The intended purpose of this project is to challenge myself by focusing on strict software development principles found in real world software development, additionally I am a big proponent of "showing rather than telling".  
 
