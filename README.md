@@ -11,7 +11,7 @@ Ultimately I would like to have something you can actually interact with anywher
 
 This project includes material by [Cburnett](https://commons.wikimedia.org/wiki/User:Cburnett), licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
 
-![](docs/timeline/2026-08-31_23-42.png)
+![](docs/timeline/2026-08-31_16-42.png)
 
 ## Professional Development Goals
 
