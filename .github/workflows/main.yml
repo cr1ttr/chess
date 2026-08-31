@@ -13,7 +13,7 @@ jobs:
       - run: npm ci
       - run: npx tsc
       - run: mkdir site
-      - run: cp -r src site/
+      - run: cp -r src/* site/
       - run: rm -rf site/scripts
       - uses: actions/upload-pages-artifact@v3
         with:
