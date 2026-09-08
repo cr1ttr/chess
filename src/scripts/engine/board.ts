@@ -14,4 +14,12 @@ export default class Board {
             this.squares.push(tmp);
         }
     }
+
+    clear() {
+        for (let y = 0; y < Board.HEIGHT; y++) {
+            for (let x = 0; x < Board.WIDTH; x++) {
+                this.squares[y]![x] = null;
+            }
+        }
+    }
 }

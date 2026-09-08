@@ -21,6 +21,8 @@ export default class FEN {
     //
     // ...
     static loadPosition(str: string, game: Game) {
+        game.state.clear();
+
         let x = 0;
         let y = 0;
         
@@ -53,7 +55,7 @@ export default class FEN {
             } else if (isZeroToSeven(ch)) {
                 const parsed: number = Number(ch);
 
-                if (x + parsed > 7) {
+                if (x + parsed > 8) {
                     console.error('FEN Loading Error: X position exceeds board limits.')
                     return;
                 }
