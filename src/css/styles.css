@@ -18,11 +18,17 @@ body {
     height: 100vh;
 }
 
-.board {
-    width: min(90vh, 90vw);
+#main-board-container {
+    width: min(90vw, 90vh);
     height: auto;
     aspect-ratio: 1;
-    position: relative;    
+}
+
+.board {
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1;
+    position: relative;
 }
 
 .cell-container {
