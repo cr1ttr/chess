@@ -48,8 +48,6 @@ export default class FEN {
                     case 'K': game.state.squares[y]![x]! = new Piece('king', 'white'); break;
                 }
 
-                console.log(game.state.squares[y]![x]!);
-
                 x += 1;
 
             } else if (isZeroToSeven(ch)) {

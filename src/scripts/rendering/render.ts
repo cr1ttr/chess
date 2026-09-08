@@ -48,7 +48,6 @@ export default class ChessRendererHTML {
 
                     const pieceElement: HTMLElement = document.createElement("div");
     
-                    console.log(teamStr + pieceStr);
                     pieceElement.classList.add(...["piece", teamStr + pieceStr, `t${x}${y}`]);
                     this.board.appendChild(pieceElement);
                 }
