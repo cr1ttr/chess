@@ -10,6 +10,8 @@
     "module": "es2022",
     "target": "es2022",
     "types": ["jest"],
+
+    "esModuleInterop": true,
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],

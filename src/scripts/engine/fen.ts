@@ -3,6 +3,7 @@ import { isAlpha, isNum, isNonZeroNum, isValidAlgebraicNotation, isValidCastling
 import { parseAlgebraicNotation } from "../utils/vector.js";
 import CastlingRights from "./castling_rights.js";
 import Piece from "./piece.js";
+import type { GameState } from "./game.js";
 
 export default class FEN {
     // Describes the expected number of args in a FEN string. 
@@ -20,8 +21,8 @@ export default class FEN {
     // board.addPiece(new Piece(PieceTeam.Black, PieceKind.Bishop), 2, 0);
     //
     // ...
-    static loadPosition(str: string, game: Game) {
-        game.state.clear();
+    static loadPosition(str: string, game: GameState) {
+        game.board.clear();
 
         let x = 0;
         let y = 0;
@@ -35,19 +36,19 @@ export default class FEN {
                 y += 1;
             } else if (isValidFenPiece(ch)) {
                 switch (ch) {
-                    case 'p': game.state.squares[y]![x]! = new Piece('pawn', 'black'); break;
-                    case 'b': game.state.squares[y]![x]! = new Piece('bishop', 'black'); break;
-                    case 'n': game.state.squares[y]![x]! = new Piece('knight', 'black'); break;
-                    case 'r': game.state.squares[y]![x]! = new Piece('rook', 'black'); break;
-                    case 'q': game.state.squares[y]![x]! = new Piece('queen', 'black'); break;
-                    case 'k': game.state.squares[y]![x]! = new Piece('king', 'black'); break;
+                    case 'p': game.board.squares[y]![x]! = new Piece('pawn', 'black'); break;
+                    case 'b': game.board.squares[y]![x]! = new Piece('bishop', 'black'); break;
+                    case 'n': game.board.squares[y]![x]! = new Piece('knight', 'black'); break;
+                    case 'r': game.board.squares[y]![x]! = new Piece('rook', 'black'); break;
+                    case 'q': game.board.squares[y]![x]! = new Piece('queen', 'black'); break;
+                    case 'k': game.board.squares[y]![x]! = new Piece('king', 'black'); break;
 
-                    case 'P': game.state.squares[y]![x]! = new Piece('pawn', 'white'); break;
-                    case 'B': game.state.squares[y]![x]! = new Piece('bishop', 'white'); break;
-                    case 'N': game.state.squares[y]![x]! = new Piece('knight', 'white'); break;
-                    case 'R': game.state.squares[y]![x]! = new Piece('rook', 'white'); break;
-                    case 'Q': game.state.squares[y]![x]! = new Piece('queen', 'white'); break;
-                    case 'K': game.state.squares[y]![x]! = new Piece('king', 'white'); break;
+                    case 'P': game.board.squares[y]![x]! = new Piece('pawn', 'white'); break;
+                    case 'B': game.board.squares[y]![x]! = new Piece('bishop', 'white'); break;
+                    case 'N': game.board.squares[y]![x]! = new Piece('knight', 'white'); break;
+                    case 'R': game.board.squares[y]![x]! = new Piece('rook', 'white'); break;
+                    case 'Q': game.board.squares[y]![x]! = new Piece('queen', 'white'); break;
+                    case 'K': game.board.squares[y]![x]! = new Piece('king', 'white'); break;
                 }
 
                 x += 1;
@@ -65,14 +66,14 @@ export default class FEN {
         }
     }
 
-    static loadTurn(str: string, game: Game) {
+    static loadTurn(str: string, game: GameState) {
         switch(str) {
-            case 'w': game.turnToMove = 'white';
-            case 'b': game.turnToMove = 'black';
+            case 'w': game.turnToMove = 'white'; break;
+            case 'b': game.turnToMove = 'black'; break;
         }
     }
 
-    static loadCastlingRights(str: string, game: Game) {
+    static loadCastlingRights(str: string, game: GameState) {
         if (isValidCastlingRightsString(str)) {
             if (str === '-') {
                 game.whiteCastlingRights = new CastlingRights({kingSide: false, queenSide: false});
@@ -90,26 +91,26 @@ export default class FEN {
         }
     }
 
-    static loadEnPassantSquare(str: string, game: Game) {
+    static loadEnPassantSquare(str: string, game: GameState) {
         if (isValidAlgebraicNotation(str)) {
             game.enPassantSquare = parseAlgebraicNotation(str);
         }
 
     }
 
-    static loadHalfMoves(str: string, game: Game) {
+    static loadHalfMoves(str: string, game: GameState) {
         if (isNum(str)) {
             game.halfMoves = Number(str)
         } 
     }
 
-    static loadFullMoves(str: string, game: Game) {
+    static loadFullMoves(str: string, game: GameState) {
         if (isNonZeroNum(str)) {
             game.fullMoves = Number(str);
         }
     }
 
-    static load(fen: string, game: Game): void {
+    static load(fen: string, game: GameState): void {
         let x = 0;
         let y = 0;
 
