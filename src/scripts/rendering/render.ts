@@ -26,7 +26,7 @@ export default class ChessRendererHTML {
                 sq.classList.add(...["sq", (x + y) % 2 ? "dark" : "light"]);
                 this.cellContainer.appendChild(sq)
 
-                const piece: Piece | null = game.state.squares[y]![x]!;
+                const piece: Piece | null = game.state.board.squares[y]![x]!;
 
                 let teamStr: string;
                 let pieceStr: string;
