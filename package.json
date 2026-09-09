@@ -17,7 +17,7 @@
     "concurrently": "^10.0.5",
     "jest": "^30.5.1",
     "jest-environment-jsdom": "^30.5.1",
-    "live-server": "^1.2.2",
+    "live-server": "^1.2.0",
     "ts-jest": "^29.4.12",
     "typescript": "^6.0.3"
   }
