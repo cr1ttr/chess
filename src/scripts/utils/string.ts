@@ -28,11 +28,11 @@ export function isValidAlgebraicNotation(str: string): boolean {
 }
 
 export function isLowerCaseAlpha(str: string): boolean {
-    return /^[a-z]*$/.test(str);
+    return /^[a-z]+$/.test(str);
 }
 
 export function isUpperCaseAlpha(str: string): boolean {
-    return /^[A-Z]*$/.test(str);
+    return /^[A-Z]+$/.test(str);
 }
 
 export function alphaCharDistance(str: string): number | undefined {
