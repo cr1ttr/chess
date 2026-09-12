@@ -54,7 +54,7 @@ export function isValidFenPiece(str: string): boolean {
 }
 
 export function isValidCastlingRightsString(str: string): boolean {
-    return /^-|K?Q?k?q?$/.test(str);
+    return /^-$|^K?Q?k?q?$/.test(str);
 }
 
 
