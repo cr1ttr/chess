@@ -74,12 +74,19 @@ body {
 .br { background-image: url("../images/pieces/br.svg"); }
 
 .wk, .wq, .wr, .wn, .wb, .wp,
-.bk, .bq, .br, .bn, .bb, .bp {
+.bk, .bq, .br, .bn, .bb, .bp,
+.move-pip {
     width: 12.5%;
     height: 12.5%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.move-pip { 
+    background-image: url("../images/move-pip.svg"); 
+    position: absolute;
+    z-index: var(--piece-layer);
 }
 
 .piece {
