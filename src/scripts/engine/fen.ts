@@ -2,7 +2,7 @@ import type Game from "./game.js";
 import { isAlpha, isNum, isNonZeroNum, isValidAlgebraicNotation, isValidCastlingRightsString, isValidFenPiece, isZeroToSeven } from "../utils/string.js"
 import { parseAlgebraicNotation } from "../utils/vector.js";
 import CastlingRights from "./castling_rights.js";
-import Piece from "./piece.js";
+import { Piece, Pawn, Knight, Rook, Queen, King, Bishop } from "./piece.js";
 import type { GameState } from "./game.js";
 
 export default class FEN {
@@ -36,19 +36,19 @@ export default class FEN {
                 y += 1;
             } else if (isValidFenPiece(ch)) {
                 switch (ch) {
-                    case 'p': game.board.squares[y]![x]! = new Piece('pawn', 'black'); break;
-                    case 'b': game.board.squares[y]![x]! = new Piece('bishop', 'black'); break;
-                    case 'n': game.board.squares[y]![x]! = new Piece('knight', 'black'); break;
-                    case 'r': game.board.squares[y]![x]! = new Piece('rook', 'black'); break;
-                    case 'q': game.board.squares[y]![x]! = new Piece('queen', 'black'); break;
-                    case 'k': game.board.squares[y]![x]! = new Piece('king', 'black'); break;
+                    case 'p': game.board.squares[y]![x]! = new Pawn('black'); break;
+                    case 'b': game.board.squares[y]![x]! = new Bishop('black'); break;
+                    case 'n': game.board.squares[y]![x]! = new Knight('black'); break;
+                    case 'r': game.board.squares[y]![x]! = new Rook('black'); break;
+                    case 'q': game.board.squares[y]![x]! = new Queen('black'); break;
+                    case 'k': game.board.squares[y]![x]! = new King('black'); break;
 
-                    case 'P': game.board.squares[y]![x]! = new Piece('pawn', 'white'); break;
-                    case 'B': game.board.squares[y]![x]! = new Piece('bishop', 'white'); break;
-                    case 'N': game.board.squares[y]![x]! = new Piece('knight', 'white'); break;
-                    case 'R': game.board.squares[y]![x]! = new Piece('rook', 'white'); break;
-                    case 'Q': game.board.squares[y]![x]! = new Piece('queen', 'white'); break;
-                    case 'K': game.board.squares[y]![x]! = new Piece('king', 'white'); break;
+                    case 'P': game.board.squares[y]![x]! = new Pawn('white'); break;
+                    case 'B': game.board.squares[y]![x]! = new Bishop('white'); break;
+                    case 'N': game.board.squares[y]![x]! = new Knight('white'); break;
+                    case 'R': game.board.squares[y]![x]! = new Rook('white'); break;
+                    case 'Q': game.board.squares[y]![x]! = new Queen('white'); break;
+                    case 'K': game.board.squares[y]![x]! = new King('white'); break;
                 }
 
                 x += 1;

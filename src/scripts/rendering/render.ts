@@ -1,5 +1,5 @@
 import type Game from "../engine/game.js";
-import type Piece from "../engine/piece.js";
+import { Piece, Pawn, Knight, Bishop, Rook, Queen, King } from "../engine/piece.js";
 
 export default class ChessRendererHTML {
     board: HTMLElement;
@@ -28,8 +28,8 @@ export default class ChessRendererHTML {
 
                 const piece: Piece | null = game.state.board.squares[y]![x]!;
 
-                let teamStr: string;
-                let pieceStr: string;
+                let teamStr: string = "";
+                let pieceStr: string = "";
 
                 if (piece !== null) {
                     switch (piece.team) {
@@ -37,13 +37,14 @@ export default class ChessRendererHTML {
                         case 'white': teamStr = "w"; break;
                     }
     
-                    switch (piece.kind) {
-                        case 'pawn': pieceStr = "p"; break;
-                        case 'bishop': pieceStr = "b"; break;
-                        case 'knight': pieceStr = "n"; break;
-                        case 'rook': pieceStr = "r"; break;
-                        case 'queen': pieceStr = "q"; break;
-                        case 'king': pieceStr = "k"; break;
+                    switch (true) {
+                        case piece instanceof Pawn: pieceStr = "p"; break;
+                        case piece instanceof Bishop: pieceStr = "b"; break;
+                        case piece instanceof Knight: pieceStr = "n"; break;
+                        case piece instanceof Rook: pieceStr = "r"; break;
+                        case piece instanceof Queen: pieceStr = "q"; break;
+                        case piece instanceof King: pieceStr = "k"; break;
+                        default: break;
                     }
 
                     const pieceElement: HTMLElement = document.createElement("div");

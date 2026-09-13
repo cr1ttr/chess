@@ -1,4 +1,4 @@
-import type Piece from "./piece.js";
+import { Piece } from "./piece.js";
 
 export default class Board {
     public static readonly WIDTH: number = 8;
