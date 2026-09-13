@@ -1,6 +1,6 @@
 import Game from "./game";
 import FEN from "./fen";
-import Piece, { type PieceKind } from "./piece";
+import { Pawn, Knight, Bishop, Rook, Queen, King } from "./piece";
 import CastlingRights from "./castling_rights";
 
 
@@ -10,26 +10,22 @@ test('tests that the default FEN string position resolves', () => {
 
     const expected = new Game();
 
-    const pieceOrder: PieceKind[] = [
-        'rook', 
-        'knight', 
-        'bishop', 
-        'queen', 
-        'king', 
-        'bishop', 
-        'knight', 
-        'rook' 
-    ]
+    const pieceOrder: (typeof Knight | typeof Rook | typeof Queen | typeof Bishop | typeof King)[] = [
+        Rook,
+        Knight,
+        Bishop,
+        Queen,
+        King,
+        Bishop,
+        Knight,
+        Rook
+    ];
 
     for (let i = 0; i < 8; i++) {
-        expected.state.board.squares[0]![i]! = new Piece(pieceOrder[i]!, 'black');
-        expected.state.board.squares[7]![i]! = new Piece(pieceOrder[i]!, 'white');
-    }
-
-
-    for (let i = 0; i < 8; i ++) {
-        expected.state.board.squares[1]![i]! = new Piece('pawn', 'black')
-        expected.state.board.squares[6]![i]! = new Piece('pawn', 'white');
+        expected.state.board.squares[0]![i]! = new pieceOrder[i]!('black');
+        expected.state.board.squares[7]![i]! = new pieceOrder[i]!('white');
+        expected.state.board.squares[1]![i]! = new Pawn('black');
+        expected.state.board.squares[6]![i]! = new Pawn('white');
     }
 
     expected.state.blackCastlingRights = new CastlingRights({kingSide: true, queenSide: true});
