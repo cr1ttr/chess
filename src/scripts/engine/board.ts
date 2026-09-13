@@ -1,4 +1,5 @@
 import { Piece } from "./piece.js";
+import type Vector2 from "./vector2.js";
 
 export default class Board {
     public static readonly WIDTH: number = 8;
@@ -21,5 +22,9 @@ export default class Board {
                 this.squares[y]![x] = null;
             }
         }
+    }
+
+    static outOfBounds(pos: Vector2): boolean {
+        return (pos.x < 0 || pos.x > 7) || (pos.y < 0 || pos.y > 7);
     }
 }

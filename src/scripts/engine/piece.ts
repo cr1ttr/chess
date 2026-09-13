@@ -1,3 +1,4 @@
+import type Board from "./board.js";
 import type Vector2 from "./vector2.js";
 
 export type PieceKind = 'pawn' | 'knight' | 'bishop' | 'rook' | 'queen' | 'king';
@@ -10,41 +11,42 @@ export abstract class Piece {
         this.team = team;
     }
 
-    abstract generateMovesAt(pos: Vector2): Vector2[];
+    abstract generateMovesAt(board: Board, pos: Vector2): Vector2[];
 }
 
 export class Pawn extends Piece {
-    generateMovesAt(pos: Vector2): Vector2[] {
+    generateMovesAt(board: Board, pos: Vector2): Vector2[] {
+        
         throw new Error("Method not implemented.");
     }
 }
 
 export class Knight extends Piece {
-    generateMovesAt(pos: Vector2): Vector2[] {
+    generateMovesAt(board: Board, pos: Vector2): Vector2[] {
         throw new Error("Method not implemented.");
     }
 }
 
 export class Bishop extends Piece {
-    generateMovesAt(pos: Vector2): Vector2[] {
+    generateMovesAt(board: Board, pos: Vector2): Vector2[] {
         throw new Error("Method not implemented.");
     }
 }
 
 export class Rook extends Piece {
-    generateMovesAt(pos: Vector2): Vector2[] {
+    generateMovesAt(board: Board, pos: Vector2): Vector2[] {
         throw new Error("Method not implemented.");
     }
 }
 
 export class Queen extends Piece {
-    generateMovesAt(pos: Vector2): Vector2[] {
+    generateMovesAt(board: Board, pos: Vector2): Vector2[] {
         throw new Error("Method not implemented.");
     }
 }
 
 export class King extends Piece {
-    generateMovesAt(pos: Vector2): Vector2[] {
+    generateMovesAt(board: Board, pos: Vector2): Vector2[] {
         throw new Error("Method not implemented.");
     }
 }
