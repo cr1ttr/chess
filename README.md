@@ -61,7 +61,7 @@ This project includes material by [Cburnett](https://commons.wikimedia.org/wiki/
 ### Recommended Developer Dependencies:
 
 - [`^10.0.5 <concurrently>`](https://www.npmjs.com/package/concurrently)
-- [`^1.2.2 <live-server>`](https://www.npmjs.com/package/live-se\rver)
+- [`^1.2.2 <live-server>`](https://www.npmjs.com/package/live-server)
 - [`^7.0.2 <typescript>`](https://www.npmjs.com/package/typescript)
 
 ### Setup Steps
