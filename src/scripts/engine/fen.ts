@@ -8,6 +8,8 @@ import type { GameState } from "./game.js";
 export default class FEN {
     // Describes the expected number of args in a FEN string. 
     public static readonly ARGS_LENGTH: number = 6;
+
+    public static readonly DEFAULT_STRING: string = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
     
     // The existence of partial FEN string loading based on positioning is 
     // mostly for easy board setup to prevent the awkward case in early
