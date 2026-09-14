@@ -75,9 +75,16 @@ This project includes material by [Cburnett](https://commons.wikimedia.org/wiki/
 npm install
 ```
 
-2. Run the testing suites
+2. Run the testing suites (optional)
 
 ```
+npm test
+```
+
+*Or you can run in verbose mode...*
+
+```
+npm test -- --verbose
 ```
 
 3. Running the development command (recommended)
