@@ -1,4 +1,4 @@
-import type Board from "./board.js";
+import Board from "./board.js";
 import Vector2 from "./vector2.js";
 
 export type PieceKind = 'pawn' | 'knight' | 'bishop' | 'rook' | 'queen' | 'king';
@@ -20,16 +20,25 @@ export class Pawn extends Piece {
     generateMovesAt(board: Board, pos: Vector2): Vector2[] {
         let moveList: Vector2[] = [];
         
-        if (pos.add(Vector2.MATH_UP)) {
-            
+        let dir: Vector2 = Vector2.ZERO; 
+        
+        switch (this.team) {
+            case 'black': dir = Vector2.SCREEN_DOWN; break;
+            case 'white': dir = Vector2.SCREEN_UP; break;
+        };
+
+        const singlePush = pos.add(dir);
+        const doublePush = pos.add(dir.multiply(2));
+
+        if (!board.isSquareOccupied(singlePush) && !Board.outOfBounds(singlePush)) {
+            moveList.push(singlePush);
+
+            if (!this.hasMoved && !board.isSquareOccupied(doublePush) && !Board.outOfBounds(doublePush)) {
+                moveList.push(doublePush);
+            }
         }
 
-
-
-
-        // if (pos.add())
-
-        throw new Error("Method not implemented.");
+        return moveList;
     }
 }
 

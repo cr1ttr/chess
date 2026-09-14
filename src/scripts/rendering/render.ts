@@ -1,10 +1,12 @@
 import type Game from "../engine/game.js";
 import { Piece, Pawn, Knight, Bishop, Rook, Queen, King } from "../engine/piece.js";
+import Vector2 from "../engine/vector2.js";
 
 export default class ChessRendererHTML {
     board: HTMLElement;
     pieceContainer: HTMLElement;
     cellContainer: HTMLElement;
+    decorContainer: HTMLElement;
 
     constructor(parent: HTMLElement, game: Game) {
         this.board = document.createElement("div");
@@ -16,6 +18,10 @@ export default class ChessRendererHTML {
         this.pieceContainer.classList.add("piece-container");
         this.board.appendChild(this.pieceContainer);
 
+        this.decorContainer = document.createElement("div");
+        this.decorContainer.classList.add("decor-container");
+        this.board.appendChild(this.decorContainer);
+
         this.cellContainer = document.createElement("div");
         this.cellContainer.classList.add("cell-container");
         this.board.appendChild(this.cellContainer);
@@ -23,6 +29,23 @@ export default class ChessRendererHTML {
         for (let y: number = 0; y < 8; y++) {
             for (let x: number = 0; x < 8; x++) {
                 const sq: HTMLElement = document.createElement("div");
+                sq.addEventListener("click", () => {
+
+                    const sq: Piece | null = game.state.board.squares[y]![x]!;
+                    let moves: Vector2[] = [];
+
+                    if (sq !== null) {
+                        moves = sq.generateMovesAt(game.state.board, new Vector2(x, y));
+                    }
+                    
+                    for (let i = 0; i < moves.length; i++) {
+                        const move = moves[i]!;
+
+                        const pip = document.createElement("div");
+                        pip.classList.add(`move-pip`, `t${move.x}${move.y}`);
+                        this.decorContainer.appendChild(pip);
+                    }
+                });
                 sq.classList.add(...["sq", (x + y) % 2 ? "dark" : "light"]);
                 this.cellContainer.appendChild(sq)
 

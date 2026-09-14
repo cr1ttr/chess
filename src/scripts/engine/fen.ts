@@ -53,6 +53,10 @@ export default class FEN {
                     case 'K': game.board.squares[y]![x]! = new King('white'); break;
                 }
 
+                if (ch === 'p' && y !== 1 || ch === 'P' && y !== 6) {
+                    game.board.squares[y]![x]!.hasMoved = true;
+                }
+
                 x += 1;
 
             } else if (isZeroToSeven(ch)) {
