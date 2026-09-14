@@ -1,7 +1,7 @@
-import Game from "./game";
-import FEN from "./fen";
-import { Pawn, Knight, Bishop, Rook, Queen, King } from "./piece";
-import CastlingRights from "./castling_rights";
+import Game from "./game.js";
+import FEN from "./fen.js";
+import { Pawn, Knight, Bishop, Rook, Queen, King } from "./piece.js";
+import CastlingRights from "./castling_rights.js";
 
 
 test('tests that the default FEN string position resolves', () => {

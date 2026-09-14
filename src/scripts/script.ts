@@ -5,6 +5,6 @@ import ChessRendererHTML from "./rendering/render.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const game = new Game();
-    FEN.load("6Q1/p1p3P1/1k1p2N1/p1n1p2P/5r2/1b6/2n4K/b1q2b2 b - - 29 30", game.state);
+    FEN.load("r1bqkb1r/pp3ppp/2n1p1n1/2pp4/3P4/4PNB1/PPP1BPPP/RN1Q1RK1 b kq - 6 7", game.state);
     const renderer = new ChessRendererHTML(document.querySelector("#main-board-container")!, game);
 });
