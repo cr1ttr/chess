@@ -76,7 +76,30 @@ export class Pawn extends Piece {
 
 export class Knight extends Piece {
     generateMovesAt(state: GameState, pos: Vector2): Vector2[] {
-        throw new Error("Method not implemented.");
+        let moveList: Vector2[] = [];
+
+        const offset: Vector2[] = [
+            new Vector2(2, -1),
+            new Vector2(2, 1),
+            new Vector2(-1, -2),
+            new Vector2(-2, -1),
+            new Vector2(-2, 1),
+            new Vector2(1, -2),
+            new Vector2(1, 2),
+            new Vector2(-1, 2)
+        ];
+
+        for (let i = 0; i < offset.length; i++) {
+            const dSq: Vector2 = pos.add(offset[i]!);
+
+            if (!Board.outOfBounds(dSq)) {
+                if (!state.board.isSquareOccupied(dSq) || state.board.isSquareOccupiedByColor(dSq, this.getOppositeColor())) {
+                    moveList.push(dSq);
+                }
+            }
+        }
+
+        return moveList;
     }
 }
 
