@@ -5,7 +5,15 @@ import Vector2 from "./vector2.js";
 export type PieceKind = 'pawn' | 'knight' | 'bishop' | 'rook' | 'queen' | 'king';
 export type PieceTeam = 'black' | 'white';
 
+function generateRayMoves(pos: Vector2, dir: Vector2, piece: Piece): Vector2[] {
+    let moveList: Vector2[] = [];
 
+    while (true) {
+        break;
+    }
+
+    return moveList;
+}
 
 export abstract class Piece {
     team: PieceTeam;
@@ -105,6 +113,8 @@ export class Knight extends Piece {
 
 export class Bishop extends Piece {
     generateMovesAt(state: GameState, pos: Vector2): Vector2[] {
+
+
         throw new Error("Method not implemented.");
     }
 }
