@@ -5,11 +5,27 @@ import Vector2 from "./vector2.js";
 export type PieceKind = 'pawn' | 'knight' | 'bishop' | 'rook' | 'queen' | 'king';
 export type PieceTeam = 'black' | 'white';
 
-function generateRayMoves(pos: Vector2, dir: Vector2, piece: Piece): Vector2[] {
+function generateRayMoves(piece: Piece, state: GameState, pos: Vector2, dir: Vector2): Vector2[] {
     let moveList: Vector2[] = [];
+    let curSq: Vector2 = pos;
+
 
     while (true) {
-        break;
+        const dSq: Vector2 = curSq.add(dir);
+        
+        if (Board.outOfBounds(dSq)) break;
+
+        if (state.board.isSquareOccupiedByColor(dSq, piece.getOppositeColor())) {
+            moveList.push(dSq);
+            break;
+        }
+
+        if (state.board.isSquareOccupied(dSq)) {
+            break;
+        }
+
+        moveList.push(dSq);
+        curSq = curSq.add(dir);
     }
 
     return moveList;
@@ -113,9 +129,20 @@ export class Knight extends Piece {
 
 export class Bishop extends Piece {
     generateMovesAt(state: GameState, pos: Vector2): Vector2[] {
+        let moveList: Vector2[] = [];
 
+        const DIRECTIONS: Vector2[] = [
+            new Vector2(1, 1),
+            new Vector2(1, -1),
+            new Vector2(-1, -1),
+            new Vector2(-1, 1)
+        ];
 
-        throw new Error("Method not implemented.");
+        for (let i = 0; i < DIRECTIONS.length; i++) {
+            moveList.push(...generateRayMoves(this, state, pos, DIRECTIONS[i]!));
+        }
+
+        return moveList;
     }
 }
 
@@ -123,74 +150,41 @@ export class Rook extends Piece {
     generateMovesAt(state: GameState, pos: Vector2): Vector2[] {
         let moveList: Vector2[] = [];
 
-        for (let y = pos.y + 1; y < 8; y++) {
-            const dSq: Vector2 = new Vector2(pos.x, y);
-            if (!Board.outOfBounds(dSq)) {
-                if (state.board.isSquareOccupiedByColor(dSq, this.getOppositeColor())) {
-                    moveList.push(dSq);
-                    break;
-                }
-                if (state.board.isSquareOccupiedByColor(dSq, this.team)) {
-                    break;
-                }
+        const DIRECTIONS: Vector2[] = [
+            Vector2.MATH_UP,
+            Vector2.MATH_RIGHT,
+            Vector2.MATH_DOWN,
+            Vector2.MATH_LEFT
+        ];
 
-                moveList.push(dSq);
-            }
+        for (let i = 0; i < DIRECTIONS.length; i++) {
+            moveList.push(...generateRayMoves(this, state, pos, DIRECTIONS[i]!));
         }
 
-        for (let y = pos.y - 1; y > 0; y--) {
-            const dSq: Vector2 = new Vector2(pos.x, y);
-            if (!Board.outOfBounds(dSq)) {
-                if (state.board.isSquareOccupiedByColor(dSq, this.getOppositeColor())) {
-                    moveList.push(dSq);
-                    break;
-                }
-                if (state.board.isSquareOccupiedByColor(dSq, this.team)) {
-                    break;
-                }
-
-                moveList.push(dSq);
-            }
-        }
-
-        for (let x = pos.x + 1; x < 8; x++) {
-            const dSq: Vector2 = new Vector2(x, pos.y);
-            if (!Board.outOfBounds(dSq)) {
-                if (state.board.isSquareOccupiedByColor(dSq, this.getOppositeColor())) {
-                    moveList.push(dSq);
-                    break;
-                }
-                if (state.board.isSquareOccupiedByColor(dSq, this.team)) {
-                    break;
-                }
-
-                moveList.push(dSq);
-            }
-        }
-
-        for (let x = pos.x - 1; x > 0; x--) {
-            const dSq: Vector2 = new Vector2(x, pos.y);
-            if (!Board.outOfBounds(dSq)) {
-                if (state.board.isSquareOccupiedByColor(dSq, this.getOppositeColor())) {
-                    moveList.push(dSq);
-                    break;
-                }
-                if (state.board.isSquareOccupiedByColor(dSq, this.team)) {
-                    break;
-                }
-
-                moveList.push(dSq);
-            }
-        }
-
-        
         return moveList;
     }
 }
 
 export class Queen extends Piece {
     generateMovesAt(state: GameState, pos: Vector2): Vector2[] {
-        throw new Error("Method not implemented.");
+        let moveList: Vector2[] = [];
+
+        const DIRECTIONS: Vector2[] = [
+            Vector2.MATH_DOWN,
+            Vector2.MATH_LEFT,
+            Vector2.MATH_UP,
+            Vector2.MATH_RIGHT,
+            new Vector2(1, 1),
+            new Vector2(-1, 1),
+            new Vector2(1, -1),
+            new Vector2(-1, -1)
+        ];
+
+        for (let i = 0; i < DIRECTIONS.length; i++) {
+            moveList.push(...generateRayMoves(this, state, pos, DIRECTIONS[i]!));
+        }
+
+        return moveList;
     }
 }
 
