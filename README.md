@@ -71,24 +71,24 @@ This project includes material by [Cburnett](https://commons.wikimedia.org/wiki/
 
 1. Install the developer dependencies (recommended)
 
-```
+```bash
 npm install
 ```
 
 2. Run the testing suites (optional)
 
-```
+```bash
 npm test
 ```
 
 *Or you can run in verbose mode...*
 
-```
+```bash
 npm test -- --verbose
 ```
 
 3. Running the development command (recommended)
 
-```
+```bash
 npm run dev
 ```
