@@ -33,11 +33,9 @@ function generateRayMoves(piece: Piece, state: GameState, pos: Vector2, dir: Vec
 
 export abstract class Piece {
     team: PieceTeam;
-    hasMoved: boolean;
 
     constructor(team: PieceTeam) {
         this.team = team;
-        this.hasMoved = false;
     }
 
     getOppositeColor(): PieceTeam {

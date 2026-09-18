@@ -6,7 +6,6 @@
 This is a web recreation of the classical board game, "Chess". 
 The intended purpose of this project is to challenge myself by focusing on strict software development principles found in real world software development, additionally I am a big proponent of "showing rather than telling".  
 
-
 Ultimately I would like to have something you can actually interact with anywhere in the world, considering virtually every device supports browsing the web. it doesn't matter where you are since you will likely be able to view this project interactively with no-hassle. In the modern age of the internet everything is demanding our attention, and I don't want to take any more of it than I need to.
 
 This project includes material by [Cburnett](https://commons.wikimedia.org/wiki/User:Cburnett), licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
@@ -61,10 +60,14 @@ This project includes material by [Cburnett](https://commons.wikimedia.org/wiki/
 ### Recommended Developer Dependencies:
 
 - [`^10.0.5 <concurrently>`](https://www.npmjs.com/package/concurrently)
-- [`^1.2.2 <live-server>`](https://www.npmjs.com/package/live-se\rver)
-- [`^7.0.2 <typescript>`](https://www.npmjs.com/package/typescript)
+- [`^1.2.2 <live-server>`](https://www.npmjs.com/package/live-server)
+- [`^6.0.3 <typescript>`](https://www.npmjs.com/package/typescript)
+- [`^30.5.1 <jest>`](https://www.npmjs.com/package/jest)
+- [`^30.5.1 <jest-environment-jsdom>`](https://www.npmjs.com/package/jest-environment-jsdom)
+- [`^30.0.0 <@types/jest>`](https://www.npmjs.com/package/@types/jest)
+- [`^29.4.12 <ts-jest>`](https://www.npmjs.com/package/ts-jest)
 
-### Setup Steps
+### Development Setup Steps
 
 1. Install the developer dependencies (recommended)
 
@@ -72,7 +75,19 @@ This project includes material by [Cburnett](https://commons.wikimedia.org/wiki/
 npm install
 ```
 
-2. Running the development command (recommended)
+2. Run the testing suites (optional)
+
+```
+npm test
+```
+
+*Or you can run in verbose mode...*
+
+```
+npm test -- --verbose
+```
+
+3. Running the development command (recommended)
 
 ```
 npm run dev
