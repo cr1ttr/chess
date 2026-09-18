@@ -116,10 +116,10 @@ export class Knight extends Piece {
         for (let i = 0; i < offset.length; i++) {
             const dSq: Vector2 = pos.add(offset[i]!);
 
-            if (!Board.outOfBounds(dSq)) {
-                if (!state.board.isSquareOccupied(dSq) || state.board.isSquareOccupiedByColor(dSq, this.getOppositeColor())) {
-                    moveList.push(dSq);
-                }
+            if (!Board.outOfBounds(dSq)) continue;
+
+            if (!state.board.isSquareOccupied(dSq) || state.board.isSquareOccupiedByColor(dSq, this.getOppositeColor())) {
+                moveList.push(dSq);   
             }
         }
 
