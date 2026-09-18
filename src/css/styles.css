@@ -8,6 +8,7 @@
 
     --cell-layer: 1;
     --piece-layer: 2;
+    --decor-layer: 3;
 }
 
 body {
@@ -41,6 +42,11 @@ body {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
     z-index: var(--board-layer);
+}
+
+.decor-container {
+    z-index: var(--decor-layer);
+    pointer-events: none;
 }
 
 .piece-container {

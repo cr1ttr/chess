@@ -8,7 +8,7 @@ describe("Vector Utilities", () => {
             for (let y = 0; y < 8; y++) { 
                 for (let x = 0; x < 8; x++) {
                     const CHAR = String.fromCharCode('a'.charCodeAt(0) + x);
-                    expect(parseAlgebraicNotation(CHAR + (y + 1).toString())).toStrictEqual(new Vector2(x, y));
+                    expect(parseAlgebraicNotation(CHAR + (y + 1).toString())).toStrictEqual(new Vector2(x, 7 - y));
                 }
             }
         });

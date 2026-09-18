@@ -23,6 +23,27 @@ export default class ChessRendererHTML {
         for (let y: number = 0; y < 8; y++) {
             for (let x: number = 0; x < 8; x++) {
                 const sq: HTMLElement = document.createElement("div");
+                sq.addEventListener("mousedown", () => {
+
+                    const sq: Piece | null = game.state.board.squares[y]![x]!;
+                    let moves: Vector2[] = [];
+
+                    if (sq !== null) {
+                        moves = sq.generateMovesAt(game.state, new Vector2(x, y));
+                    }
+                    
+                    for (let i = 0; i < moves.length; i++) {
+                        const move = moves[i]!;
+
+                        const pip = document.createElement("div");
+                        pip.classList.add(`move-pip`, `t${move.x}${move.y}`);
+                        this.decorContainer.appendChild(pip);
+                    }
+                });
+                sq.addEventListener("mouseup", () => {
+                    this.decorContainer.replaceChildren();
+                });
+
                 sq.classList.add(...["sq", (x + y) % 2 ? "dark" : "light"]);
                 this.cellContainer.appendChild(sq)
 
