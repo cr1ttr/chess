@@ -1,4 +1,5 @@
-import { Piece } from "./piece.js";
+import { Piece, type PieceTeam } from "./piece.js";
+import type Vector2 from "./vector2.js";
 
 export default class Board {
     public static readonly WIDTH: number = 8;
@@ -22,4 +23,18 @@ export default class Board {
             }
         }
     }
+
+    
+    static outOfBounds(pos: Vector2): boolean {
+        return pos.x >= 0 && pos.x <= 7 && pos.y >= 0 && pos.y <= 7;
+    }
+
+    isSquareOccupied(pos: Vector2): boolean {
+        return !Board.outOfBounds(pos) && this.squares[pos.y]![pos.x]! !== null;
+    }
+
+    isSquareOccupiedByColor(pos: Vector2, color: PieceTeam): boolean {
+        return !Board.outOfBounds(pos) && this.squares[pos.y]![pos.x]! !== null && this.squares[pos.y]![pos.x]!.team === color;
+    }
+
 }
