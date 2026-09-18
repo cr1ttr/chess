@@ -1,10 +1,12 @@
 import type Game from "../engine/game.js";
+import Vector2 from "../engine/vector2.js";
 import { Piece, Pawn, Knight, Bishop, Rook, Queen, King } from "../engine/piece.js";
 
 export default class ChessRendererHTML {
     board: HTMLElement;
     pieceContainer: HTMLElement;
     cellContainer: HTMLElement;
+    decorContainer: HTMLElement;
 
     constructor(parent: HTMLElement, game: Game) {
         this.board = document.createElement("div");
@@ -15,6 +17,10 @@ export default class ChessRendererHTML {
         this.pieceContainer = document.createElement("div");
         this.pieceContainer.classList.add("piece-container");
         this.board.appendChild(this.pieceContainer);
+
+        this.decorContainer = document.createElement("div");
+        this.decorContainer.classList.add("decor-container");
+        this.board.appendChild(this.decorContainer);
 
         this.cellContainer = document.createElement("div");
         this.cellContainer.classList.add("cell-container");
