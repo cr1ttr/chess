@@ -30,11 +30,13 @@ export default class Board {
     }
 
     isSquareOccupied(pos: Vector2): boolean {
-        return !Board.outOfBounds(pos) && this.squares[pos.y]![pos.x]! !== null;
+        if (Board.outOfBounds(pos)) return false;
+        return this.squares[pos.y]![pos.x] !== null;
     }
 
     isSquareOccupiedByColor(pos: Vector2, color: PieceTeam): boolean {
-        return !Board.outOfBounds(pos) && this.squares[pos.y]![pos.x]! !== null && this.squares[pos.y]![pos.x]!.team === color;
+        if (Board.outOfBounds(pos)) return false;
+        return this.squares[pos.y]![pos.x]! !== null && this.squares[pos.y]![pos.x]!.team === color;
     }
 
 }
